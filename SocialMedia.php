@@ -1,11 +1,4 @@
 <?php
-/*
- * This material is licensed by and exclusively for Nature Coast
- * Web Design & Marketing, Inc., MyChurchServer.com, and their respective
- * customers. All reuse, in whole or in part, and whether for personal or commercial purposes,
- *  without the express written consent of Nature Coast Web Design & Marketing, Inc. and
- * MyChurchServer.com is prohibited.
- */
 /*To use this script simply copy the logo images into the site's images folder, include this script in the body of the main page, and instantiate a member of the class*/
 /*Be sure to place the member where you want the mobilized verision of the links to appear*/
 namespace SocialMedia;
