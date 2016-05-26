@@ -8,6 +8,13 @@ class SocialMedia{
     public $business = NULL;
     public $images_location = NULL;
     public $div_width = NULL;
+    private $facebook_image = 'fb_icon.jpg';
+    private $linkedin_image = 'linkedin-icon.png';
+    private $pinterest_image = 'pinterest-icon.png';
+    private $instagram_image = 'instagram-glyph-logo.png';
+    private $twitter_image = 'Twitter_logo.png';
+    private $youtube_image = 'youtube-icon.jpg';
+    private $google_plus_image = 'google-plus-icon.png';
     private $mobile_cutoff = '800px';
     function __construct($name, $http_images_url, $width=50, $facebook_link=NULL, $instagram_link=NULL, $linkedin_link=NULL, $pinterest=NULL, $twitter_link=NULL, $youtube_link=NULL,$google_plus = NULL) {
         $this->setLink('linkedin',$linkedin_link);
@@ -40,6 +47,14 @@ class SocialMedia{
     public function updateYouTube($new_link){$this->setLink('youtube',$new_link);}
     public function updateGooglePlus($new_link){$this->setLink('google',$new_link);}
 
+    public function updateFacebookImage($new_image_link){$this->$facebook_image=$new_image_link;}
+    public function updateLinkedInImage($new_image_link){$this->$linkedin_image=$new_image_link;}
+    public function updatePinterestImage($new_image_link){$this->$pinterest_image = $new_image_link;}
+    public function updateInstagramImage($new_image_link){$this->$instagram_image=$new_image_link;}
+    public function updateTwitterImage($new_image_link){$this->$twitter_image=$new_image_link;}
+    public function updateYouTubeImage($new_image_link){$this->$youtube_image=$new_image_link;}
+    public function updateGooglePlusImage($new_image_link){$this->$google_plus_image=$new_image_link;}
+
     private function setLink($type,$url){
         $this->links[$type] = $url;
     }
@@ -50,31 +65,31 @@ class SocialMedia{
             switch(strtolower($key)){
                 case 'facebook':
                     $output[0] = '<a href="' .$value.'" target="_blank" id="'.strtolower($key).'">';
-                    $output[0] .= '<img src="'.$this->images_location.'fb_icon.jpg" alt="'.$this->business.' on Facebook" title="'.$this->business.' on Facebook" align="center" /></a>';
+                    $output[0] .= '<img src="'.$this->images_location.$this->$facebook_image.'" alt="'.$this->business.' on Facebook" title="'.$this->business.' on Facebook" align="center" /></a>';
                     break;
                 case 'twitter':
                     $output[3] = '<a href="' .$value.'" target="_blank" id="'.strtolower($key).'">';
-                    $output[3] .= '<img src="'.$this->images_location.'Twitter_logo.png" alt="'.$this->business.' on Twitter" title="'.$this->business.' on Twitter" align="center" /></a>';
+                    $output[3] .= '<img src="'.$this->images_location.$this->$twitter_image.'" alt="'.$this->business.' on Twitter" title="'.$this->business.' on Twitter" align="center" /></a>';
                     break;
                 case 'linkedin':
                     $output[4] = '<a href="' .$value.'" target="_blank" id="'.strtolower($key).'">';
-                    $output[4] .= '<img src="'.$this->images_location.'linkedin-icon.png" alt="'.$this->business.' on LinkedIn" title="'.$this->business.' on LinkedIn" align="center" /></a>';
+                    $output[4] .= '<img src="'.$this->images_location.$this->$linkedin_image.'" alt="'.$this->business.' on LinkedIn" title="'.$this->business.' on LinkedIn" align="center" /></a>';
                     break;
                 case 'instagram':
                     $output[1] = '<a href="' .$value.'" target="_blank" id="'.strtolower($key).'">';
-                    $output[1] .= '<img src="'.$this->images_location.'instagram-glyph-logo.png" alt="'.$this->business.' on Instagram" title="'.$this->business.' on Instagram" align="center" /></a>';
+                    $output[1] .= '<img src="'.$this->images_location.$this->$instagram_image.'" alt="'.$this->business.' on Instagram" title="'.$this->business.' on Instagram" align="center" /></a>';
                     break;
                 case 'pinterest':
                     $output[2] = '<a href="' .$value.'" target="_blank" id="'.strtolower($key).'">';
-                    $output[2] .= '<img src="'.$this->images_location.'pinterest-icon.png" alt="'.$this->business.' on Pinterest" title="'.$this->business.' on Pinterest" align="center" /></a>';
+                    $output[2] .= '<img src="'.$this->images_location.$this->$pinterest_image.'" alt="'.$this->business.' on Pinterest" title="'.$this->business.' on Pinterest" align="center" /></a>';
                     break;
                 case 'youtube':
                     $output[5] = '<a href="' .$value.'" target="_blank" id="'.strtolower($key).'">';
-                    $output[5] .= '<img src="'.$this->images_location.'youtube-icon.jpg" alt="'.$this->business.' on YouTube" title="'.$this->business.' on YouTube" align="center" /></a>';
+                    $output[5] .= '<img src="'.$this->images_location.$this->$youtube_image.'" alt="'.$this->business.' on YouTube" title="'.$this->business.' on YouTube" align="center" /></a>';
                     break;
                 case 'google':
                     $output[6] = '<a href="' .$value.'" target="_blank" id="'.strtolower($key).'">';
-                    $output[6] .= '<img src="'.$this->images_location.'google-plus-icon.png" alt="'.$this->business.' on Google Plus" title="'.$this->business.' on Google Plus" align="center" /></a>';
+                    $output[6] .= '<img src="'.$this->images_location.$this->$google_plus_image.'" alt="'.$this->business.' on Google Plus" title="'.$this->business.' on Google Plus" align="center" /></a>';
                     break;
             }
         }
